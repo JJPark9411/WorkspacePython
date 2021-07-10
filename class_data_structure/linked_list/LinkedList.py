@@ -34,6 +34,18 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    def insert_after(self, previous_node, data):
+        """링크드 리스트 주어진 노드 뒤 삽입 연산 메소드"""
+        new_node = Node(data)
+
+        # 가장 마지막 순서 삽입
+        if previous_node is self.tail:
+            self.tail.next = new_node
+            self.tail = new_node
+        else: # 두 노드 사이 삽입
+            new_node.next = previous_node.next
+            previous_node.next = new_node
+
     def find_node_at(self, index):
         """링크드 리스트 접근 연산 메소드. 파라미터 인덱스는 항상 있다고 가정"""
         iterator = self.head
@@ -80,12 +92,22 @@ my_list.append(5)
 my_list.append(7)
 my_list.append(11)
 
+# insert_after
+node_2 = my_list.find_node_at(2) # 인덱스 2에 있는 노드 접근
+my_list.insert_after(node_2, 6)  # 인덱스 2 노드 뒤에 6 삽입
+
+print("insert_after")
+print(my_list)
+
+
+# find_node_at
 # 링크드 리스트 노드에 접근 (데이터 가져오기)
 print("my_list[3] = ", end='')
 print(my_list.find_node_at(3).data)
 
 # 링크드 리스트 노드에 접근 (데이터 바꾸기)
 my_list.find_node_at(2).data = 13
+
 
 # 노드 순서대로 출력
 iterator = my_list.head
