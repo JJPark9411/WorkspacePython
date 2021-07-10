@@ -34,6 +34,19 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    def delete_after(self, previous_node):
+        """링크드 리스트 삭제 연산. 주어진 노드 뒤 노드를 삭제한다"""
+        data = previous_node.next.data
+
+        # 지우려는 노드가 tail 노드일 때
+        if previous_node.next is self.tail:
+            previous_node.next = None
+            self.tail = previous_node
+        else:
+            previous_node.next = previous_node.next.next
+
+        return data
+
     def insert_after(self, previous_node, data):
         """링크드 리스트 주어진 노드 뒤 삽입 연산 메소드"""
         new_node = Node(data)
@@ -91,6 +104,13 @@ my_list.append(3)
 my_list.append(5)
 my_list.append(7)
 my_list.append(11)
+
+# delete_after
+print("delete_after")
+print(my_list)
+node_2 = my_list.find_node_at(2)
+my_list.delete_after(node_2)
+print(my_list)
 
 # insert_after
 node_2 = my_list.find_node_at(2) # 인덱스 2에 있는 노드 접근
