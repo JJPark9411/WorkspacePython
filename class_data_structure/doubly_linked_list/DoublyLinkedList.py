@@ -14,6 +14,19 @@ class LinkedList:
         self.head = None
         self.tail = None
 
+    def append(self, data):
+        """링크드 리스트 추가 연산 메소드"""
+        new_node = Node(data) # 새로운 데이터를 저장하는 노드
+
+        # 링크드 리스트가 비어있는 경우
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else: # 링크드 리스트에 데이터가 이미 있는 경우
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+
     def find_node_at(self, index):
         """링크드 리스트 접근 연산 메소드. 파라미터 인덱스는 항상 있다고 가정한다"""
 
@@ -51,3 +64,15 @@ class LinkedList:
             iterator = iterator.next  # 다음 노드로 넘어간다
 
         return res_str
+
+
+# 빈 링크드 리스트 정의
+my_list = LinkedList()
+
+# 링크드 리스트에 데이터 추가
+my_list.append(2)
+my_list.append(3)
+my_list.append(5)
+my_list.append(7)
+
+print(my_list)
