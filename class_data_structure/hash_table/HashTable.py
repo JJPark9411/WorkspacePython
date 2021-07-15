@@ -60,4 +60,18 @@ class LinkedList:
         else:
             node_to_delete.prev.next = node_to_delete.next
             node_to.delete.next.prev = node_to_delete.prev
-    
+
+    def __str__(self):
+        """링크드 리스트를 문자열로 표현해서 리턴하는 메소드"""
+        res_str = ""
+
+        # 링크드 리스트 안에 모든 노드를 돌기 위한 변수. 가장 앞 노드로 정의한다.
+        iterator = self.head
+
+        # 링크드 리스트 순회
+        while iterator is not None:
+            # 각 노드의 데이터를 리턴하는 문자열에 더해준다.
+            res_str += "{}: {}\n".format(iterator.key, iterator.value)
+            iterator = iterator.next # 다음 노드로 넘어간다.
+
+        return res_str
