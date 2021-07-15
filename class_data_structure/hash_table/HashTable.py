@@ -75,3 +75,12 @@ class LinkedList:
             iterator = iterator.next # 다음 노드로 넘어간다.
 
         return res_str
+
+
+my_list = LinkedList()
+
+my_list.append(101, "A")
+my_list.append(201, "B")
+my_list.append(301, "C")
+
+print(my_list)
