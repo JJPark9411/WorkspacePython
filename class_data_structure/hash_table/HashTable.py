@@ -23,4 +23,19 @@ class LinkedList:
             iterator = iterator.next
 
         return None
+
+    def append(self, key, value):
+        """링크드 리스트 추가 연산 메소드"""
+        new_node = Node(key, value)
+
+        # 빈 링크드 리스트라면 head와 tail을 새로 만든 노드로 지정
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        # 이미 노드가 있으면
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+
     
