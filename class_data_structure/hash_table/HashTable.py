@@ -38,4 +38,26 @@ class LinkedList:
             new_node.prev = self.tail
             self.tail = new_node
 
+    def delete(self, node_to_delete):
+        """더블리 링크드 리스트 삭제 연산 메소드"""
+
+        # 링크드 리스트에서 마지막 남은 데이터를 삭제할 때
+        if node_to_delete is self.head and node_to_delete is self.tail:
+            self.tail = None
+            self.head = None
+
+        # 링크드 리스트 가장 앞 데이터를 삭제할 때
+        elif node_to_delete is self.head:
+            self.head = self.head.next
+            self.head.prev = None
+
+        # 링크드 리스트 가장 뒤 데이터를 삭제할 때
+        elif node_to_delete is self.tail:
+            self.tail = self.tail.prev
+            self.tail.next = None
+
+        # 두 노드 사이에 있는 데이터를 삭제할 때
+        else:
+            node_to_delete.prev.next = node_to_delete.next
+            node_to.delete.next.prev = node_to_delete.prev
     
