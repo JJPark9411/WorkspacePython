@@ -24,21 +24,10 @@ def merge(list1, list2):
 
     return merged_list
 
-
-def merge_sort(my_list):
-    # base case
-    if len(my_list) < 2:
-        return my_list
-
-    # my_list를 반씩 나눈다(divide)
-    left_half = my_list[:len(my_list)//2]    # 왼쪽 반
-    right_half = my_list[len(my_list)//2:]   # 오른쪽 반
-
-    # merge_sort 함수를 재귀적으로 호출하여 부분 문제 해결(conquer)하고,
-    # merge 함수로 정렬된 두 리스트를 합쳐(combine)준다
-    return merge(merge_sort(left_half), merge_sort(right_half))
-
 # 테스트
-print(merge_sort([1, 3, 5, 7, 9, 11, 13, 11]))
-print(merge_sort([28, 13, 9, 30, 1, 48, 5, 7, 15]))
-print(merge_sort([2, 5, 6, 7, 1, 2, 4, 7, 10, 11, 4, 15, 13, 1, 6, 4]))
+print(merge([1],[]))
+print(merge([],[1]))
+print(merge([2],[1]))
+print(merge([1, 2, 3, 4],[5, 6, 7, 8]))
+print(merge([5, 6, 7, 8],[1, 2, 3, 4]))
+print(merge([4, 7, 8, 9],[1, 3, 6, 10]))
