@@ -1,12 +1,12 @@
 class User:
-    def say_hello(some_user):
+    def say_hello(self):
         # 인사 메시지 출력 메소드
-        print("Hello! I'm {}.".format(some_user.name))
+        print("Hello! I'm {}.".format(self.name))
 
-    def sign_in(some_user, my_email, my_password):
+    def sign_in(self, my_email, my_password):
         # 로그인 메소드
-        if some_user.email == my_email and some_user.password == my_password:
-            print("Hello! {}.".format(some_user.name))
+        if self.email == my_email and self.password == my_password:
+            print("Hello! {}.".format(self.name))
         else:
             print("Failed to sign in.")
 
