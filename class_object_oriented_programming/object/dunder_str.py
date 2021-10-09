@@ -22,5 +22,3 @@ user3 = User("Park", "park@codeit.kr", "67890")
 
 print(user1)
 print(user2)
-
-print(User.count)
