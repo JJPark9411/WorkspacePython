@@ -1,8 +1,4 @@
-def print_hello():
-    print("Hello!")
-
-
-def add_print_to(original):
+def add_print_to(original): # decorator function
     def wrapper():
         print("Start method")
         original()
@@ -10,6 +6,10 @@ def add_print_to(original):
     return wrapper
 
 
-print_hello = add_print_to(print_hello)
+@add_print_to # print_hello 함수를 add_print_to로 꾸며주라는 의미
+def print_hello():
+    print("Hello!")
+
 
 print_hello()
+
