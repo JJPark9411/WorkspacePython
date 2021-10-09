@@ -1,24 +1,15 @@
 class User:
     # initialize 메소드를 여기 쓰세요
-    def initialize(self, name, email, password):
+    def __init__(self, name, email, password): # double underbar: special method (magic method)
         self.name = name
         self.email = email
         self.password = password
 
 
-user1 = User()
-user1.initialize("Young", "young@codeit.kr", "123456")
-
-user2 = User()
-user2.initialize("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
-
-user3 = User()
-User.initialize(user3, "Taeho", "taeho@codeit.kr", "123abc")
-
-user4 = User()
-User.initialize(user4, "Lisa", "lisa@codeit.kr", "abc123")
-
-
+user1 = User("Young", "young@codeit.kr", "123456")
+user2 = User("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
+user3 = User("Taeho", "taeho@codeit.kr", "123abc")
+user4 = User("Lisa", "lisa@codeit.kr", "abc123")
 
 print(user1.name, user1.email, user1.password)
 print(user2.name, user2.email, user2.password)
