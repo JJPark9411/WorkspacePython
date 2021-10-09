@@ -1,6 +1,7 @@
 class User:
-    pass # 아무 내용이 없다는 의미
-
+    def say_hello(some_user):
+        # 인사 메시지 출력 메소드
+        print("Hello! I'm {}.".format(some_user.name))
 
 user1 = User()
 user2 = User()
@@ -18,5 +19,6 @@ user3.name = "Choi"
 user3.email = "choi@codeit.kr"
 user3.password = "13579"
 
-print(user1.email)
-print(user2.password)
+User.say_hello(user1)
+User.say_hello(user2)
+User.say_hello(user3)
