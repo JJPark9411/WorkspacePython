@@ -10,6 +10,10 @@ class User:
         else:
             print("Failed to sign in.")
 
+    def check_name(self, name):
+        # 파라미터로 받는 name이 유저의 이름과 같은지 boolean으로 리턴하는 메소드
+        return self.name == name
+
 
 user1 = User()
 user2 = User()
@@ -32,3 +36,6 @@ user1.say_hello() # instance의 method는 instance를 첫 번째 인자로 받�
 
 # user1.sign_in(user1, "kim@codeit.kr", "12345") # 에러 발생
 user1.sign_in("kim@codeit.kr", "12345")
+
+print(user1.check_name("Kim"))
+print(user1.check_name("Lee"))
