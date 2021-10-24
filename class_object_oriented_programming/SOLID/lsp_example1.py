@@ -4,6 +4,7 @@ class Employee:
     raise_percentage = 1.03
 
     def __init__(self, name, wage):
+        """인스턴스 변수 설정"""
         self.name = name
         self._wage = wage
 
@@ -13,6 +14,7 @@ class Employee:
 
     @property
     def wage(self):
+        """_wage 변수 getter 메소드"""
         return self._wage
 
     def __str__(self):
@@ -21,18 +23,24 @@ class Employee:
 
 
 class Cashier(Employee):
-    """리스코프 치환 원칙을 지키지 않는 계산대 직원 클래스"""
+    """계산대 직원 클래스"""
+    raise_percentage = 1.05
     burger_price = 4000
 
     def __init__(self, name, wage, number_sold=0):
         super().__init__(name, wage)
         self.number_sold = number_sold
 
-    def raise_pay(self, raise_amount):
-        """직원 시급을 인상하는 메소드"""
-        self.wage += self.raise_amount
+    def take_order(self, money_received):
+        """손님이 낸 돈을 받아 주문 처리를 하고 거스름돈을 리턴한다"""
+        if Cashier.burger_price > money_received:
+            print("돈이 충분하지 않습니다. 돈을 다시 계산해서 주세요!")
+            return money_received
+        else:
+            self.number_sold += 1
+            change = money_received - Cashier.burger_price
+            return change
 
-    @property
-    def wage(self):
-        return "시급 정보를 알려줄 수 없습니다"
+    def __str__(self):
+        return Cashier.company_name + " 계산대 직원: " + self.name
 
