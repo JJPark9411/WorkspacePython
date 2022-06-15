@@ -10,7 +10,7 @@ batch_size = 64
 learning_rate = 0.0002
 total_epoch = 10
 
-fashion_mnist_train = dset.FashionMNIST(root='MNIST_data/',
+fashion_mnist_train = dset.FashionMNIST(root='FashionMNIST/',
                                         train=True,
                                         transform=transforms.ToTensor(),
                                         download=True) # 28x28 mnist 이미지 데이터
