@@ -15,13 +15,13 @@ mappings = {
     'Iris-versicolor':1,
     'Iris-virginica':2
 }
-iris['Name'] = iris['Name'].map(lambda x: mappings[x])
+iris['Name'] = iris['Name'].map(lambda x: mappings[x]) # string으로 되어 있는 Name을 정수로 mapping하여 변환
 print()
 print(iris.head(20))
 print(iris.tail(20))
 
-x = iris.drop('Name', axis=1).values
-y = iris['Name'].values
+x = iris.drop('Name', axis=1).values # Name을 제외하고 values로 변환
+y = iris['Name'].values # Name을 values로 전환
 
 print(x)
 print(y)
