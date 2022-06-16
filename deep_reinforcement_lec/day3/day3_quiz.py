@@ -58,7 +58,7 @@ view_data = view_data.type(torch.FloatTensor)/255.
 
 
 def train(autoencoder, train_loader):
-    autoencoder.train()
+    autoencoder.train() # 모드를 설정하는 부분. model에 Dropout()이나 BatchNormalization()이 있을 경우 train 모드에서는 적용되지만, evaluate 모드에서는 적용되지 않음
     for step, (x, label) in enumerate(train_loader):
         x = x.view(-1, 28*28)
         y = x.view(-1, 28*28)
